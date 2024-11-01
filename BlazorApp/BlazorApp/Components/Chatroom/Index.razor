@@ -1,0 +1,39 @@
+﻿@page "/chatrooms"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using BlazorApp.Models
+@using BlazorApp.Data
+@attribute [Authorize]
+@implements IAsyncDisposable
+@inject IDbContextFactory<BlazorApp.Data.ApplicationDbContext> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="chatrooms/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.Chatroom">
+    <PropertyColumn Property="chatroom => chatroom.Name" />
+
+    <TemplateColumn Context="chatroom">
+        <a href="@($"chatrooms/edit?id={chatroom.Id}")">Edit</a> |
+        <a href="@($"chatrooms/details?id={chatroom.Id}")">Details</a> |
+        <a href="@($"chatrooms/delete?id={chatroom.Id}")">Delete</a>
+        <a href="@($"chatmessages/{chatroom.Id}")">Join</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private ApplicationDbContext context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}
