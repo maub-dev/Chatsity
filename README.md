@@ -17,3 +17,6 @@ Browser-based chat application with multiple chatroom support. Allows users to i
 - **.NET Identity**: Use .NET identity for users authentication.
 - **Invalid messages**: Handle messages that are not understood or any exceptions raised within the bot. **NOT IMPLEMENTED**
 - **Installer**: Build an installer. **NOT IMPLEMENTED**
+
+## Instructions
+- In order to execute the project it is necessary to run the EF migrations and set the "BlazorApp" project as Startup Project
