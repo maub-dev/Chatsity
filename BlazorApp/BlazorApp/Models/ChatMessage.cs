@@ -7,8 +7,9 @@ namespace BlazorApp.Models
         public Guid Id { get; set; }
         public string Message { get; set; }
         public DateTime DateSent { get; set; }
+        public string Username { get; set; }
 
-        public ApplicationUser SentBy { get; set; }
+        public ApplicationUser? SentBy { get; set; }
         public Chatroom Room { get; set; }
     }
 }
