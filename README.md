@@ -17,7 +17,3 @@ Browser-based chat application with multiple chatroom support. Allows users to i
 - **.NET Identity**: Use .NET identity for users authentication.
 - **Invalid messages**: Handle messages that are not understood or any exceptions raised within the bot. **NOT IMPLEMENTED**
 - **Installer**: Build an installer. **NOT IMPLEMENTED**
-
-
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
